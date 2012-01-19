@@ -2,14 +2,14 @@
 
 Summary:	C library to create IRC clients
 Name:		libircclient
-Version: 	1.3
+Version: 	1.5
 Release: 	%mkrel 1
 License: 	GPLv2
 Group:		System/Libraries
-URL: 		http://libircclient.sourceforge.net/index.html
-Source0:	%{name}-%{version}.tar.gz
+URL:		http://www.ulduzsoft.com/libircclient/
+Source0:	http://downloads.sourceforge.net/libircclient/%{name}-%{version}.tar.gz
 Patch0:		libircclient-1.3-headers.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRequires:	openssl-devel
 
 %description
 libircclient is a small but powerful library that implements the client-server
@@ -59,24 +59,17 @@ standards, and most IRC clients. libircclient features include:
 %patch0 -p1 -b .headers
 
 %build
-%configure2_5x
+%configure2_5x --enable-openssl --enable-ipv6
 %make
 
 %install
-rm -rf %{buildroot}
-
 %__mkdir_p %{buildroot}%{_libdir}
 %__cp src/%{name}.a %{buildroot}%{_libdir}/
 
-%__mkdir_p %{buildroot}%{_includedir}/%{name}
-%__cp include/*.h %{buildroot}%{_includedir}/%{name}/
-
-%clean
-rm -rf %{buildroot}
+%__mkdir_p %{buildroot}%{_includedir}
+%__cp include/*.h %{buildroot}%{_includedir}
 
 %files -n %{develname}
-%defattr(-,root,root)
 %doc LICENSE README Changelog THANKS doc/html
 %{_libdir}/*.a
-%{_includedir}/%{name}
-
+%{_includedir}/*.h
