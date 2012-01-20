@@ -3,12 +3,13 @@
 Summary:	C library to create IRC clients
 Name:		libircclient
 Version: 	1.5
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 License: 	GPLv2
 Group:		System/Libraries
 URL:		http://www.ulduzsoft.com/libircclient/
 Source0:	http://downloads.sourceforge.net/libircclient/%{name}-%{version}.tar.gz
 Patch0:		libircclient-1.3-headers.patch
+Patch1:		libircclient-1.5-include-rfc.patch
 BuildRequires:	openssl-devel
 
 %description
@@ -57,6 +58,7 @@ standards, and most IRC clients. libircclient features include:
 %prep
 %setup -q
 %patch0 -p1 -b .headers
+%patch1 -p0 -b .rfc
 
 %build
 %configure2_5x --enable-openssl --enable-ipv6
