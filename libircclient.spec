@@ -2,8 +2,8 @@
 
 Summary:	C library to create IRC clients
 Name:		libircclient
-Version: 	1.5
-Release: 	%mkrel 2
+Version: 	1.6
+Release: 	1
 License: 	GPLv2
 Group:		System/Libraries
 URL:		http://www.ulduzsoft.com/libircclient/
