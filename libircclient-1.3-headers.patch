@@ -1,0 +1,13 @@
+Index: libircclient/include/libircclient.h
+===================================================================
+--- libircclient.orig/include/libircclient.h	2009-06-28 13:56:44.000000000 +0100
++++ libircclient/include/libircclient.h	2009-06-28 13:57:06.000000000 +0100
+@@ -43,6 +43,8 @@
+ #ifndef INCLUDE_LIBIRC_H
+ #define INCLUDE_LIBIRC_H
+ 
++#include <stdlib.h>
++
+ #if !defined (WIN32)
+ 	#include <sys/select.h>	/* fd_set */
+ #else
