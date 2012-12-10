@@ -75,3 +75,22 @@ standards, and most IRC clients. libircclient features include:
 %doc LICENSE README Changelog THANKS doc/html
 %{_libdir}/*.a
 %{_includedir}/*.h
+
+
+%changelog
+* Fri Apr 20 2012 Alexander Khrukin <akhrukin@mandriva.org> 1.6-1
++ Revision: 792522
+- version update 1.6
+
+* Fri Jan 20 2012 Funda Wang <fwang@mandriva.org> 1.5-2
++ Revision: 762884
+- add rfc include into main header
+
+* Thu Jan 19 2012 Funda Wang <fwang@mandriva.org> 1.5-1
++ Revision: 762524
+- new version 1.5
+
+* Thu Dec 22 2011 Andrey Bondrov <abondrov@mandriva.org> 1.3-1
++ Revision: 744577
+- imported package libircclient
+
