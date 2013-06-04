@@ -1,3 +1,4 @@
+%define debug_package %nil
 %define develname %mklibname -d -s ircclient
 
 Summary:	C library to create IRC clients
