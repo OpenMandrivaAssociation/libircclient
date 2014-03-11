@@ -1,17 +1,18 @@
-%define debug_package %nil
-%define develname %mklibname -d -s ircclient
+%define _enable_debug_packages %{nil}
+%define debug_package %{nil}
+
+%define devname %mklibname -d -s ircclient
 
 Summary:	C library to create IRC clients
 Name:		libircclient
-Version: 	1.6
-Release: 	1
-License: 	GPLv2
+Version:	1.7
+Release:	1
+License:	GPLv2+
 Group:		System/Libraries
-URL:		http://www.ulduzsoft.com/libircclient/
+Url:		http://www.ulduzsoft.com/libircclient/
 Source0:	http://downloads.sourceforge.net/libircclient/%{name}-%{version}.tar.gz
-Patch0:		libircclient-1.3-headers.patch
-Patch1:		libircclient-1.5-include-rfc.patch
-BuildRequires:	openssl-devel
+Patch0:		libircclient-1.5-include-rfc.patch
+BuildRequires:	pkgconfig(openssl)
 
 %description
 libircclient is a small but powerful library that implements the client-server
@@ -32,12 +33,14 @@ standards, and most IRC clients. libircclient features include:
  * Compatible with RFC 1459 and most IRC clients.
  * Good documentation and examples available.
 
-%package -n	%{develname}
+#----------------------------------------------------------------------------
+
+%package -n	%{devname}
 Summary:	C library to create IRC clients
 Group:		Development/C
-Provides:	%{name}-static-devel = %{version}-%{release}
+Provides:	%{name}-static-devel = %{EVRD}
 
-%description -n	%{develname}
+%description -n	%{devname}
 libircclient is a small but powerful library that implements the client-server
 IRC protocol. It is designed to be small, fast, portable and compatible to RFC
 standards, and most IRC clients. libircclient features include:
@@ -56,42 +59,27 @@ standards, and most IRC clients. libircclient features include:
  * Compatible with RFC 1459 and most IRC clients.
  * Good documentation and examples available.
 
-%prep
-%setup -q
-%patch0 -p1 -b .headers
-%patch1 -p0 -b .rfc
-
-%build
-%configure2_5x --enable-openssl --enable-ipv6
-%make
-
-%install
-%__mkdir_p %{buildroot}%{_libdir}
-%__cp src/%{name}.a %{buildroot}%{_libdir}/
-
-%__mkdir_p %{buildroot}%{_includedir}
-%__cp include/*.h %{buildroot}%{_includedir}
-
-%files -n %{develname}
-%doc LICENSE README Changelog THANKS doc/html
+%files -n %{devname}
+%doc LICENSE README Changelog THANKS
 %{_libdir}/*.a
 %{_includedir}/*.h
 
+#----------------------------------------------------------------------------
 
-%changelog
-* Fri Apr 20 2012 Alexander Khrukin <akhrukin@mandriva.org> 1.6-1
-+ Revision: 792522
-- version update 1.6
+%prep
+%setup -q
+%patch0 -p0 -b .rfc
 
-* Fri Jan 20 2012 Funda Wang <fwang@mandriva.org> 1.5-2
-+ Revision: 762884
-- add rfc include into main header
+%build
+%configure2_5x \
+	--enable-openssl \
+	--enable-ipv6
+%make
 
-* Thu Jan 19 2012 Funda Wang <fwang@mandriva.org> 1.5-1
-+ Revision: 762524
-- new version 1.5
+%install
+mkdir -p %{buildroot}%{_libdir}
+cp src/%{name}.a %{buildroot}%{_libdir}/
 
-* Thu Dec 22 2011 Andrey Bondrov <abondrov@mandriva.org> 1.3-1
-+ Revision: 744577
-- imported package libircclient
+mkdir -p %{buildroot}%{_includedir}
+cp include/*.h %{buildroot}%{_includedir}
 
