@@ -1,0 +1,27 @@
+--- libircclient-1.9/examples/Makefile.in.omv~	2017-05-13 22:59:22.923390294 +0200
++++ libircclient-1.9/examples/Makefile.in	2017-05-13 23:00:45.904202004 +0200
+@@ -9,19 +9,19 @@ EXAMPLES=spammer censor irctest ircftp c
+ all:	$(EXAMPLES)
+ 
+ spammer:	spammer.o
+-	$(CC) -o spammer spammer.o $(LIBS)
++	$(CC) $(CFLAGS) -o spammer spammer.o $(LIBS)
+ 
+ colors:		colors.o
+-	$(CXX) -o colors colors.o $(LIBS)
++	$(CXX) $(CFLAGS) -o colors colors.o $(LIBS)
+ 
+ irctest:	irctest.o
+-	$(CC) -o irctest irctest.o $(LIBS)
++	$(CC) $(CFLAGS) -o irctest irctest.o $(LIBS)
+ 
+ censor:	censor.o
+-	$(CXX) -o censor censor.o $(LIBS)
++	$(CXX) $(CFLAGS) -o censor censor.o $(LIBS)
+ 
+ ircftp:	ircftp.o
+-	$(CXX) -o ircftp ircftp.o $(LIBS)
++	$(CXX) $(CFLAGS) -o ircftp ircftp.o $(LIBS)
+ 
+ 
+ clean:

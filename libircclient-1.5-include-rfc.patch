@@ -1,5 +1,5 @@
---- include/libircclient.h.include	2012-01-20 04:57:05.000000000 +0100
-+++ include/libircclient.h	2012-01-20 04:57:27.000000000 +0100
+--- a/include/libircclient.h.include	2012-01-20 04:57:05.000000000 +0100
++++ b/include/libircclient.h	2012-01-20 04:57:27.000000000 +0100
 @@ -133,6 +133,7 @@
  #include "libirc_errors.h"
  #include "libirc_events.h"
