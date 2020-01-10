@@ -70,7 +70,7 @@ standards, and most IRC clients. libircclient features include:
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 mv configure.in configure.ac
 autoconf
 
