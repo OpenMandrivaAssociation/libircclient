@@ -12,8 +12,8 @@ Group:		System/Libraries
 Url:		http://www.ulduzsoft.com/libircclient/
 Source0:	http://downloads.sourceforge.net/libircclient/%{name}-%{version}.tar.gz
 Patch0:		libircclient-1.5-include-rfc.patch
-Patch1:		libircclient-1.9-openssl-1.1.patch
-Patch2:		libircclient-1.9-buildfixes.patch
+#Patch1:		libircclient-1.9-openssl-1.1.patch
+#Patch2:		libircclient-1.9-buildfixes.patch
 BuildRequires:	pkgconfig(openssl)
 
 %description
