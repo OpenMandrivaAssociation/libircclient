@@ -6,7 +6,7 @@
 Summary:	C library to create IRC clients
 Name:		libircclient
 Version:	1.10
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.ulduzsoft.com/libircclient/
@@ -69,10 +69,10 @@ standards, and most IRC clients. libircclient features include:
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
+#%%autopatch -p1
 mv configure.in configure.ac
-autoconf
+autoreconf -f
 
 %build
 %configure \
